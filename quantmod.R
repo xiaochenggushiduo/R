@@ -1,0 +1,10 @@
+library(quantmod)
+library(xts)
+library(zoo)
+library(TTR)
+setSymbolLookup(WK=list(name='601601.ss',src='yahoo'))
+getSymbols("WK",from="2018-05-21",to="2018-06-21")
+dim(WK)
+head(WK)
+chartSeries(WK,up.col='red', dn.col='green', TA=c(#addMACD(),
+                                                  addSMA(n=5,col="white"),addSMA(n=10,col="yellow")))
